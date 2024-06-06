@@ -1,6 +1,6 @@
 # oracleDb-ngrok
 ## Introduction
-## Installation
+## Building Oracle Database container images
 1. Clone repository
 ```git
 git clone https://github.com/oracle/docker-images
@@ -15,8 +15,11 @@ https://www.oracle.com/database/technologies/oracle-database-software-downloads.
 ```sh
    ./buildContainerImage.sh -v 19.3.0 -t oracle-db:0.1 -e     
 ```
-
-
+7. After the installation done, Check your images with command
+```sh
+  docker images -a   
+```   
+## Building Ngrok container images
 
 
 docker run -d -it --name oracledb -p 1521:1521 -p 5500:5500 \
