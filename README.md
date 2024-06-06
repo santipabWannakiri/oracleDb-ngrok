@@ -18,10 +18,11 @@ https://www.oracle.com/database/technologies/oracle-database-software-downloads.
 7. After the installation done, Check your images with command
 ```sh
   docker images -a   
-```   
-## Building Ngrok container images
-
-
+```
+8. You can test to start the oracle database container as the following command
+ ```sh
 docker run -d -it --name oracledb -p 1521:1521 -p 5500:5500 \
   -e ORACLE_PDB=TESTDB -e ORACLE_PWD=zxcv1234 \
-  -v /Users/greatkid/Nokia3310/oracleDB/docker-images/OracleDatabase/SingleInstance/dockerfiles/persistent:/opt/in/container oracle-db:0.1 
+  -v ./persistent:/opt/in/container oracle-db:0.1 
+ ``` 
+## Building Ngrok container images
