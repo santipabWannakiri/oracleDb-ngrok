@@ -26,3 +26,4 @@ docker run -d -it --name oracledb -p 1521:1521 -p 5500:5500 \
   -v ./persistent:/opt/in/container oracle-db:0.1 
  ``` 
 ## Building Ngrok container images
+To build Ngrok as a container and configuration the `ngrok.yml`  --> [Ngrok config](https://github.com/santipabWannakiri/spring-boot-container-cicd?tab=readme-ov-file#ngrok)
