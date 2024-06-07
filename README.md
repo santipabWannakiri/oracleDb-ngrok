@@ -45,3 +45,5 @@ tunnels:
 > If you desire fixed addresses, you may need to consider an upgrade plan at the Ngrok dashboard.\
 > To verify the current host and port, navigate to `http://localhost:4040/inspect/http`
 
+## Building Docker Compose
+
