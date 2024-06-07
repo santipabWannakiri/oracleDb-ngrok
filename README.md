@@ -41,3 +41,7 @@ tunnels:
     addr: host.docker.internal:1521
     proto: tcp
  ```
+> Ngrok is going to random generate a host and port for accessing the database.
+> If you desire fixed addresses, you may need to consider an upgrade plan at the Ngrok dashboard.\
+> To verify the current host and port, navigate to `http://localhost:4040/inspect/http`
+
