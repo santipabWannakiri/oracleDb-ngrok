@@ -46,4 +46,4 @@ tunnels:
 > To verify the current host and port, navigate to `http://localhost:4040/inspect/http`
 
 ## Building Docker Compose
-
+In this step, we're going to ramp up all the containers as a Docker Compose. 
