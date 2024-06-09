@@ -46,4 +46,52 @@ tunnels:
 > To verify the current host and port, navigate to `http://localhost:4040/inspect/http`
 
 ## Building Docker Compose
-In this step, we're going to ramp up all the containers as a Docker Compose. 
+In this step, we will ramp up all the containers using Docker Compose at the following
+ ```yml
+version: '4.0'
+services:
+  oracledb:
+    image: oracle-db:0.1
+    container_name: oracledb
+    networks:
+      - docker-daemon
+    environment:
+      - ORACLE_PDB={database_name}
+      - ORACLE_PWD={password_your_db}
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    volumes:
+      - ./persistent:/opt/in/container
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: ngrok
+    restart: unless-stopped
+    command:
+      - "start"
+      - "--all"
+      - "--config"
+      - "/etc/ngrok.yml"
+    volumes:
+      - ./ngrok_home/ngrok.yml:/etc/ngrok.yml
+      - ./ngrok_home/log/ngrok.log:/var/log/ngrok.log
+    ports:
+      - 4040:4040
+    depends_on:
+      - oracledb
+
+networks:
+  docker-daemon:
+    driver: bridge
+ ```
+
+When we are done creating a Docker Compose file to start the container, use the following command: 
+```sh
+   docker compose -f ./{docker_compose_file} up -d    
+```
+
+To check status of container 
+```sh
+  docker ps -a
+```
